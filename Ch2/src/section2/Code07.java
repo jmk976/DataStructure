@@ -14,7 +14,7 @@ public class Code07 {
             String command = kb.next();
             if (command.equals("create")) {
                 char name = kb.next().charAt(0);
-                polys[n] = new Poynomial2();
+                polys[n] = new Polynomial2();
                 polys[n].name = name;
                 polys[n].terms = new Term2 [100];
                 polys[n].nTerms = 0;
@@ -22,7 +22,7 @@ public class Code07 {
 
             }
             else if(command.equals("add")) {
-                char name = kb.next().chartAt(0);
+                char name = kb.next().charAt(0);
                 int index = find(name);
                 if(index == -1){
                     System.out.println("No such polynomial exists.");
@@ -30,7 +30,7 @@ public class Code07 {
                 else {
                     int c = kb.nextInt();
                     int e = kb.nextInt();
-                    addTerm( polys[index], c, e);
+                    polys[index].addTerm( c, e);
                 }
 
             }
@@ -61,6 +61,15 @@ public class Code07 {
             }
         }
         kb.close();
+    }
+    
+    private static int find(char name){
+        for(int i =0; i<n; i++){
+            if(polys[i].name ==name){
+                return i;
+            }
+        }
+        return -1;
     }
 
     
