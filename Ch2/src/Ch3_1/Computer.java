@@ -2,11 +2,11 @@ package Ch3_1;
 
 public class Computer {
 
-    public String manufacturer;
-    public String processor;
-    public int ramSize;
-    public int diskSize;
-    public double processorSpeed;
+    private String manufacturer;
+    private String processor;
+    private int ramSize;
+    private int diskSize;
+    private double processorSpeed;
 
    // 생성자
     public Computer(String man, String proc, int ram, int disk, double procSpeed){
@@ -38,7 +38,7 @@ public class Computer {
                         "\nCPU:: " +processor +
                         "\nRAM:: " +ramSize +" megabytes"+
                         "\nDisk:: " +diskSize +" gigabytes"+
-                        "\nProcessor speed:: " +processorSpeed + "gigaherts";
+                        "\nProcessor speed:: " +processorSpeed + " gigaherts";
         return result;
     }
 }
