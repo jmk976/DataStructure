@@ -23,9 +23,8 @@ public class Notebook extends Computer {
     }
 
     public static void main(String[] args){
-        Notebook test = new Notebook("Dell", "15", 4, 1000, 3.2, 15.6, 1.2);
-      
-        System.out.println( test.computerPower() );
-        System.out.println( test.toString() ); // computer class로 부터 상속 받은 메소드
+        Computer test = new Notebook("Dell", "15", 4, 1000, 3.2, 15.6, 1.2);
+     
+        System.out.println( test.toString() ); // static binding (computer의 메소드) vs dynamic binding(notebook의 메소드)
     }
 }
