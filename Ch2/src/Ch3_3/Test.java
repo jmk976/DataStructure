@@ -30,7 +30,7 @@ public class Test {
         array[0] = a;  //autoboxing
 
        //   int b = age.intValue();  //unwrapping
-        int b = (Integer) array[0]; //unboxing
+       // int b = (Integer) array[0]; //unboxing
 
         String str ="1234";
         int c = Integer.parseInt(str); //데이터 타입간의 변화기능 제공
