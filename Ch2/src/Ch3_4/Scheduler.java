@@ -41,7 +41,7 @@ public class Scheduler {
             } else if(command.equals("sort")){
                // Arrays.sort( events, 0, n );   events가 배열 일때 sorting 알고리즘
 
-                Collections.sort( events );      //events가 array일때 sorting 알고리즘
+                //Collections.sort( events );      //events가 array일때 sorting 알고리즘
 
             } else if(command.equals("exit")){
                 break;
