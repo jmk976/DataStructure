@@ -1,5 +1,8 @@
 package Ch3_4;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class Scheduler {
@@ -9,9 +12,10 @@ public class Scheduler {
     // DeadlinedEvent [] deadlines = new DeadlinedEvent [100];
    // ->배열을 3개 만들것이 아니라 공통 상위 클래스 event를 만들어
    //  다른 종류의 데이터를 하나의 배열에 다 담아준다 :(다형성)
-    private int capacity =10;
-   public Event [] events = new Event [capacity];
-    public int n = 0;
+   // private int capacity =10;
+    public ArrayList<Event> events = new ArrayList<>();
+   // public Event [] events = new Event [capacity];
+   // public int n = 0;
     private Scanner kb;
 
     public void processCommand() {
@@ -34,6 +38,11 @@ public class Scheduler {
             } else if(command.equals("show")){
                 handleShow();
 
+            } else if(command.equals("sort")){
+               // Arrays.sort( events, 0, n );   events가 배열 일때 sorting 알고리즘
+
+                Collections.sort( events );      //events가 array일때 sorting 알고리즘
+
             } else if(command.equals("exit")){
                 break;
             }
@@ -44,16 +53,17 @@ public class Scheduler {
     private void handleShow(){
        String dateString = kb.next();
        MyDate theDate = parseDateString( dateString );
-       for(int i =0; i<n; i++){
+       for( Event ev: events){
            //test if events[i] is relaevant to the date, then print it;
-           if(events[i].isRelevant( theDate )){
-               System.out.println( events[i].toString() );
+           if(ev.isRelevant( theDate )){
+               System.out.println( ev.toString() );
            }
        }     
     }
     private void handleList(){
-        for(int i =0; i<n; i++)
-            System.out.println("  "+ events[i].toString() );        
+       // for(int i =0; i<n; i++)
+       for( Event ev: events)        //enhanced for loop
+            System.out.println("  "+ ev.toString() );    //dynamic binding  
     }
 
     private void handleAddOneDayEvent(){
@@ -77,21 +87,21 @@ public class Scheduler {
     private void handleAddDeadlinedEvent(){
     
     }
-    private void addEvent(OneDayEvent ev){
-        if(n >= capacity){
-            reallocate();
-        }
-        events[n++] = ev;  
+    private void addEvent(Event ev){
+        // if(n >= capacity){
+        //     reallocate();
+        // }
+        events.add(ev);  
     }
  //배열 재 할당
-    private void reallocate(){
-        Event[] tmp = new Event[capacity *2];
-        for(int i =0; i<n; i++){
-            tmp[i] = events[i];
-        }
-        events = tmp;
-        capacity *=2; 
-    }
+    // private void reallocate(){
+    //     Event[] tmp = new Event[capacity *2];
+    //     for(int i =0; i<n; i++){
+    //         tmp[i] = events[i];
+    //     }
+    //     events = tmp;
+    //     capacity *=2; 
+    // }
 
     private MyDate parseDateString(String dateString){   //dateString ="2017/12/3"
         String [] tokens = dateString.split("/");
