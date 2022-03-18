@@ -1,5 +1,7 @@
 package Ch4_2;
 
+import java.util.Iterator;
+
 import Ch4_1.MySingleLinkedList;
 import Ch4_1.Node;
 
@@ -49,20 +51,29 @@ public class Polynomial {
     public int calc( int x ){
         int result = 0;
         
-        Node<Term> p = terms.head;
-        while( p != null ){
-            result += p.data.calc( x );
-            p = p.next;
+        // Node<Term> p = terms.head;
+        // while( p != null ){
+        //     result += p.data.calc( x );
+        //     p = p.next;
+        // }
+
+
+        //다형성 + 인터페이스 개념이 들어감.
+        Iterator<Term> iter = terms.iterator();
+        while(iter.hasNext()){
+            Term t = iter.next();
+            result += t.calc(x);
         }
+        
         return result;
     }
 
     public String toString() {
         String result = "";
-        Node<Term> p = terms.head;
-        while( p != null ) {
-            result += ("+" + p.data.toString() ) ;
-            p = p.next;
+        Iterator<Term> iter = terms.iterator();
+        while(iter.hasNext()){
+            Term t = iter.next();
+            result += ("+" + t.toString() ) ;
         }
 
         return result;
