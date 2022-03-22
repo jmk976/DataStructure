@@ -2,6 +2,7 @@ package Ch4_4;
 
 import java.util.Iterator;
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 public class KWLinkedList <E>{
 
@@ -60,7 +61,7 @@ public class KWLinkedList <E>{
             } else {
                 nextItem = head;
                 for( index = 0; index < i; index++ ){
-                    nextItem = nextIem.next;
+                    nextItem = nextItem.next;
                 }
             }
 
@@ -76,7 +77,7 @@ public class KWLinkedList <E>{
         public E next() {
             // TODO Auto-generated method stub
             if(!hasNext())
-                throw new NoSuchElmentException();
+                throw new NoSuchElementException();
 
             lastItemReturned = nextItem;
             nextItem = nextItem.next;
@@ -159,26 +160,34 @@ public class KWLinkedList <E>{
 
     }
 
-    public int indexOf( E item ){
+    // public int indexOf( E item ){
+    //     //MySingleLinkedList에서와 동일함
 
-    }
+    // }
      
     public void add( int index, E item ){
-
+        listiterator(index).add(item);
     }
 
     public E get( int index ){
+        return listiterator(index).next();
 
     }
 
-    public boolean remove( int index ){
+    public E remove( int index ){
+        if(index < 0 || index >= size)
+            throw new IndexOutOfBoundsException();
+        ListIterator<E> iter = listiterator(index);
+        E result = iter.next();
+        iter.remove();
+        return result;
 
     }
 
-    public void remove( E obj ){
+    // public boolean remove( E obj ){
 
 
-    }
+    // }
 
     public int size(){
         return size;
