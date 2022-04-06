@@ -44,7 +44,7 @@ public class reverse_string  {
 
     public static void main(String[] args) {   
     
-        String answer = reverse("hi my name is"); 
+       // String answer = reverse("hi my name is"); 
         String answer2 = reverse2("sweetdream");
         System.out.println(answer2);
     }

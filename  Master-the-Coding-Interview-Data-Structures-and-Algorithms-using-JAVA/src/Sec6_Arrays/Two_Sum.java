@@ -71,16 +71,16 @@ public class Two_Sum {
         return result;
     }
 
-   public static void main(String[] args) {
+//    public static void main(String[] args) {
 
-    int[] nums={1,2,3,7};
+//     int[] nums={1,2,3,7};
 
 
-    int[] answer = twoSum2(nums, 5);
-    System.out.println(answer[0]+","+answer[1]);
+//     int[] answer = twoSum2(nums, 5);
+//     System.out.println(answer[0]+","+answer[1]);
 
       
-  }
+//   }
 
     // public static <K, V> K getKey(Map<K, V> map, V value) {
  
