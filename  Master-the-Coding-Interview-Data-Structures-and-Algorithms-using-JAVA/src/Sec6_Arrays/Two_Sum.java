@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Two_Sum {
-    public static int[] twoSum(int[] nums, int target) { // time complexity O(n^2), space complexity O(1)
+    public static int[] twoSum(int[] nums, int target) { 
+        // time complexity O(n^2), space complexity O(1)
         
         //return 
         int[] result = new int[2];
@@ -20,14 +21,14 @@ public class Two_Sum {
                }
                
             }
-          
         }
 
         return result;
         
     }
 
-    public static int[] twoSum2(int[] nums, int target) { // Time complexity O(n), space complexity O(n)
+    public static int[] twoSum2(int[] nums, int target) { 
+        // Time complexity O(n), space complexity O(n)
 
         int[] result = new int[2];
     
@@ -49,7 +50,8 @@ public class Two_Sum {
         return result;
     }
 
-    public static int[] twoSum3(int[] nums, int target) { // Time complexity O(n), space complexity O(n)
+    public static int[] twoSum3(int[] nums, int target) { 
+        // Time complexity O(n), space complexity O(n)
 
         int[] result = new int[2];
     
