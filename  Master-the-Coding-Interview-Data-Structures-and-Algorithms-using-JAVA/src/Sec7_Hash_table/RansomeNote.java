@@ -6,6 +6,10 @@ import java.util.Map;
 public class RansomeNote {
 
     public boolean canConstruct(String ransomNote, String magazine){
+        //Approach 1: Simulation
+        //Time Complexity : O(m⋅n).
+        //Space Complexity : O(m).
+
         for( char c : ransomNote.toCharArray()){
             int index = magazine.indexOf(c);
             if(index == -1){
@@ -26,9 +30,12 @@ public class RansomeNote {
     }
 
     public boolean canConstruct2(String ransomNote, String magazine){
-        if(ransomNote.length() > magazine.length()) {
+        //Approach 2: Two HashMaps
+        //Time Complexity : O(m)
+        //Space Complexity : O(k)/O(1).
+       if(ransomNote.length() > magazine.length()) {
             return false;
-        }
+        } 
 
         Map<Character, Integer> ransomNoteCounts = makeCountsMap(ransomNote);
         Map<Character, Integer> magazineCounts = makeCountsMap(magazine);
@@ -44,9 +51,36 @@ public class RansomeNote {
         return true;
     }
 
+    public boolean canConstruct3(String ransomNote, String magazine){
+
+        //Approach 3: One HashMap
+        //Time Complexity : O(m)
+        //Space Complexity : O(k) / O(1)
+        if(ransomNote.length() > magazine.length()) {
+            return false;
+        } 
+        Map<Character, Integer> magazineCounts = makeCountsMap(magazine);
+
+        for(char c: ransomNote.toCharArray()){
+
+            int countInMagazine = magazineCounts.getOrDefault(c, 0);
+            if(countInMagazine == 0){
+                return false;
+            }
+
+            magazineCounts.put(c, countInMagazine-1);
+
+            
+        }
+        return true;
+
+
+    }
+
+
     public static void main(String[] args) {
        RansomeNote rn = new RansomeNote();
-        System.out.println(rn.canConstruct2("ilow", "iloveu"));
+        System.out.println(rn.canConstruct3("ilo", "iloveu"));
        
       }
     
