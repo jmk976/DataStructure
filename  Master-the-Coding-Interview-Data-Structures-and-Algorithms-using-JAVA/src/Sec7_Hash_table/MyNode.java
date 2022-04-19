@@ -1,4 +1,4 @@
-package Sec6_Arrays;
+package Sec7_Hash_table;
 
 public class MyNode{
     public String key;
