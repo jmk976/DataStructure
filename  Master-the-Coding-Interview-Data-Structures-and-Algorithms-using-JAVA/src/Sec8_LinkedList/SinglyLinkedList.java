@@ -67,6 +67,11 @@ public class SinglyLinkedList {
       
 
     }
+    
+    public int getLength() {
+        return length;
+    }
+
 
 
     public void remove(int index){
@@ -95,8 +100,8 @@ public class SinglyLinkedList {
 
     }
 
-    public LinkedList reverse(LinkedList linkedList) {
-        LinkedList newList = new LinkedList(linkedList.head.value);
+    public SinglyLinkedList reverse(SinglyLinkedList linkedList) {
+        SinglyLinkedList newList = new SinglyLinkedList(linkedList.head.value);
         Node current = linkedList.head;
         while (current.next != null) {
             current = current.next;
@@ -130,7 +135,7 @@ public class SinglyLinkedList {
         System.out.println("length: " + myLinkedList.getLength());
         System.out.println("list: " + Arrays.toString(myLinkedList.printList()));
         //reverse
-        LinkedList linkedList2 = myLinkedList.reverse(myLinkedList);
+        SinglyLinkedList linkedList2 = myLinkedList.reverse(myLinkedList);
         System.out.println("reverse linkedList" + Arrays.toString(linkedList2.printList()));
     }
 
