@@ -13,6 +13,7 @@ public class PJ1874 {
         for(int i = 0; i < N; i++){
             A[i] = sc.nextInt();
         }
+        sc.close();
         Stack<Integer> stack = new Stack<>();
         StringBuffer bf = new StringBuffer();
 

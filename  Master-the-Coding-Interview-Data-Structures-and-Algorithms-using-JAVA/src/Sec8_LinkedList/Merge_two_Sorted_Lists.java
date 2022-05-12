@@ -1,7 +1,5 @@
 package Sec8_LinkedList;
 
-import java.util.Iterator;
-import java.util.List;
 
 public class Merge_two_Sorted_Lists {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {

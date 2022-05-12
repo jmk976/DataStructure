@@ -1,7 +1,7 @@
 package Sec8_LinkedList;
 
 import java.util.Arrays;
-import java.util.LinkedList;
+
 
 public class SinglyLinkedList {
 
