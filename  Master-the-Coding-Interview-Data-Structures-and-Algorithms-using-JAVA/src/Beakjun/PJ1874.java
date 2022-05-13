@@ -1,4 +1,4 @@
-package Programmers_study;
+package Beakjun;
 
 import java.util.Scanner;
 import java.util.Stack;
