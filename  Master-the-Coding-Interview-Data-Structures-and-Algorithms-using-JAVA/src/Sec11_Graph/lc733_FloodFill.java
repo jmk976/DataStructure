@@ -4,6 +4,7 @@ public class lc733_FloodFill {
 
     //Approach #1
     //https://kkokkoma-dev.tistory.com/137
+    //	1 ms	47.7 MB
 
     private int before;
     private int lengthOfSr;
@@ -30,21 +31,22 @@ public class lc733_FloodFill {
 
 
     //Approach #2: Depth-First Search [Accepted]  from Leetcode
+    //1 ms	48.8 MB
 
     public int[][] floodFill2(int[][] image, int sr, int sc, int newColor ){
-        int color = image[sr][sr];
-        if(color != newColor) dfs2(image, sr, sc, color, newColor);
+        int color = image[sr][sr]; // 첫 칼라 
+        if(color != newColor) dfs2(image, sr, sc, color, newColor); // 첫칼라 숫자와 뉴칼라 숫자가 동일하면 바꿀 필요도 없이 그냥 그대로 리턴!
         return image;
         
     }
 
     public void dfs2(int[][] image, int r, int c, int color, int newColor ){
-        if(image[r][c] == color){
-            image[r][c] = newColor;
-            if(r >= 1) dfs2(image, r-1, c, color, newColor);
-            if(c >= 1) dfs2(image, r, c-1, color, newColor);
-            if(r+1 < image.length) dfs2(image, r+1, c, color, newColor);
-            if(c+1 < image[0].length) dfs2(image, r, c+1, color, newColor);
+        if(image[r][c] == color){ //들어온 위치의 칼라와 첫칼라가 같다면
+            image[r][c] = newColor;  //들어온 위치의 칼라에 새 칼라를 넣고
+            if(r >= 1) dfs2(image, r-1, c, color, newColor); //행이 0보다 크면, 행 왼쪽으로 한칸 이동한 위치에서 dfs 해준다. 
+            if(c >= 1) dfs2(image, r, c-1, color, newColor); //열이 0보다 크면, 열이 윗쪽으로 한칸 이동한 위치에서 dfs 해준다. 
+            if(r+1 < image.length) dfs2(image, r+1, c, color, newColor); //행에서 오른쪽 이동한 위치가 이미지의 길이 보다 짧다면, 이동한 위치에서 dfs 해준다. 
+            if(c+1 < image[0].length) dfs2(image, r, c+1, color, newColor); //열에서 아랫쪽으로 한칸 이동한 위치가 이미지 길이 보다 짧다면, 이동한 위치에서 dfs 해준다. 
         }
     }
 
